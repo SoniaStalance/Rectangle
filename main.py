@@ -1,15 +1,15 @@
-from Point import Point
+from Point import GUIPoint
 from Rectangle import GUIRectangle
 from random import randint
 import turtle
 
 
 def main():
-    rectangle = GUIRectangle(Point(randint(0, 10), randint(0, 10)), Point(randint(11, 20), randint(11, 20)))
+    rectangle = GUIRectangle(GUIPoint(randint(0, 100), randint(0, 100)), GUIPoint(randint(200, 300), randint(200, 300)))
     rectangle.print_coordinates()
 
     print('Guess a point that lies inside the rectangle')
-    user_point = Point(float(input('Enter x:')), float(input('Enter y:')))
+    user_point = GUIPoint(float(input('Enter x:')), float(input('Enter y:')))
 
     user_area = float(input('Calculate and enter the area of the given rectangle:'))
 
@@ -21,6 +21,7 @@ def main():
     # GUI
     canvas = turtle.Turtle()
     rectangle.draw(canvas)
+    user_point.draw(canvas)
     turtle.done()
 
 
