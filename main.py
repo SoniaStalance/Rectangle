@@ -1,10 +1,11 @@
 from Point import Point
-from Rectangle import Rectangle
+from Rectangle import GUIRectangle
 from random import randint
+import turtle
 
 
 def main():
-    rectangle = Rectangle(Point(randint(0, 10), randint(0, 10)), Point(randint(11, 20), randint(11, 20)))
+    rectangle = GUIRectangle(Point(randint(0, 10), randint(0, 10)), Point(randint(11, 20), randint(11, 20)))
     rectangle.print_coordinates()
 
     print('Guess a point that lies inside the rectangle')
@@ -16,6 +17,11 @@ def main():
     print(f"Area calculated correctly: {rectangle.check_area(user_area)}")
     if not rectangle.check_area(user_area):
         print(f"Actual area: {rectangle.area()}")
+
+    # GUI
+    canvas = turtle.Turtle()
+    rectangle.draw(canvas)
+    turtle.done()
 
 
 if __name__ == "__main__":

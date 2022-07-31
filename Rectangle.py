@@ -10,10 +10,24 @@ class Rectangle:
               f'({self.point2.x},{self.point1.y})')
 
     def area(self):
-        return (self.point2.x-self.point1.x)*(self.point2.y-self.point1.y)
+        return (self.point2.x - self.point1.x) * (self.point2.y - self.point1.y)
 
     def check_area(self, user_area):
         if self.area() == user_area:
             return True
         else:
             return False
+
+
+class GUIRectangle(Rectangle):
+    def draw(self, canvas):
+        canvas.penup()
+        canvas.goto(self.point1.x, self.point1.y)
+        canvas.pendown()
+        canvas.forward(self.point2.y-self.point1.y)
+        canvas.right(90)
+        canvas.forward(self.point2.x - self.point1.x)
+        canvas.right(90)
+        canvas.forward(self.point2.y - self.point1.y)
+        canvas.right(90)
+        canvas.forward(self.point2.x - self.point1.x)
