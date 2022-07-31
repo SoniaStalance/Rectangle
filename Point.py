@@ -11,3 +11,9 @@ class Point:
             return False
 
 
+class GUIPoint(Point):
+    def draw(self, canvas):
+        canvas.penup()
+        canvas.goto(self.x, self.y)
+        canvas.pendown()
+        canvas.dot(10, 'red')
